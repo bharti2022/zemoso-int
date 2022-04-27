@@ -24,6 +24,8 @@ public class ConsumerController {
     private static final String REDIRECT="redirect:";
     private static final String LIST="/consumers/list";
 
+    private String models="consumers";
+
     Consumers theConsumers=null;
     List<Consumers> consumers;
     public ConsumerController(ConsumerService consumerService){
@@ -33,7 +35,7 @@ public class ConsumerController {
     @GetMapping("/list")
     public String listConsumers(Model theModel){
         consumers = consumerService.findAll();
-        theModel.addAttribute("consumers",theConsumers);
+        theModel.addAttribute(models,theConsumers);
         return PATH_FOR_LIST;
     }
 
@@ -41,7 +43,7 @@ public class ConsumerController {
     public String showFormForAdd(Model theModel) {
          theConsumers = new Consumers();
 
-            theModel.addAttribute("consumers", theConsumers);
+            theModel.addAttribute(models, theConsumers);
 
         return "/consumers/consumer-form";
     }
@@ -66,7 +68,7 @@ public class ConsumerController {
     public String showFormForUpdate(@RequestParam("consumerId") int theId,
                                     Model theModel) {
          theConsumers= consumerService.findById(theId);
-        theModel.addAttribute("consumers", theConsumers);
+        theModel.addAttribute(models, theConsumers);
 
         return "/consumers/consumer-update";
     }
@@ -84,7 +86,7 @@ public class ConsumerController {
 
         consumers = consumerService.searchByName(theName);
 
-            theModel.addAttribute("consumers", consumers);
+            theModel.addAttribute(models, consumers);
 
             return PATH_FOR_LIST;
 
