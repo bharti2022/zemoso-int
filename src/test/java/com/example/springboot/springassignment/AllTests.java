@@ -5,6 +5,7 @@ import com.example.springboot.springassignment.entity.Consumers;
 import com.example.springboot.springassignment.service.ConsumerService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -44,8 +45,6 @@ public class AllTests {
 
     }
 
-
-
     @Test
     public void getConsumerById(){
         when(consumerRepository.findById(1)).thenReturn(Optional.of(consumer));
@@ -56,6 +55,11 @@ public class AllTests {
         consumerRepository.delete(consumer);
         consumerService.deleteById(consumer.getId());
         verify(consumerRepository,times(1)).deleteById(consumer.getId());
+   }
+   @Test
+    public void save(){
+        consumerService.save(consumer);
+        verify(consumerRepository, Mockito.times(1)).save(consumer);
    }
 
 }
