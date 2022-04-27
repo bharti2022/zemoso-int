@@ -4,6 +4,7 @@ import com.example.springboot.springassignment.dao.ConsumerRepository;
 import com.example.springboot.springassignment.entity.Consumers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,15 +47,5 @@ public class ConsumerServiceImpl implements ConsumerService{
     }
 
 
-    @Override
-    public List<Consumers> searchByName(String theName) {
-       List<Consumers> results= null;
-       if(theName!=null && (theName.trim().length()>0)){
-           results = consumerRepository.findByConsumerNameLike("%"+theName+"%");
-       }
-       else{
-           results = findAll();
-       }
-        return results;
-    }
+
 }

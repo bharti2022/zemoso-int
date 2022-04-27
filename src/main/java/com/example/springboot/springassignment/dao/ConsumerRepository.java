@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ConsumerRepository extends JpaRepository<Consumers,Integer> {
-    List<Consumers> findByConsumerNameLike(String theName);
 
 }

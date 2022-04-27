@@ -13,6 +13,6 @@ public interface ConsumerService {
 
     public void deleteById(int theId);
 
-    List<Consumers> searchByName(String theName);
+
 
 }

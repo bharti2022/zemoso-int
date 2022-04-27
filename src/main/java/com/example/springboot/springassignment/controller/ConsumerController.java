@@ -79,18 +79,7 @@ public class ConsumerController {
          consumerService.deleteById(theConsumers.getId());
         return REDIRECT+LIST;
     }
-    @GetMapping("/search")
-    public String search(@RequestParam("consumerName") String theName,
-                         Model theModel) {
 
-
-        consumers = consumerService.searchByName(theName);
-
-            theModel.addAttribute(models, consumers);
-
-            return PATH_FOR_LIST;
-
-    }
 
 
 }
