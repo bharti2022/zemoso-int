@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Update Consumer Data</title>
+    <style>
+        .error {
+           color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+
+  <div><h3>Update Consumer Data</h3>   <a th:href="@{/consumers/list}">Back to Employees List</a> </div>
+    <hr>
+
+    <p class="h4 mb-4">Save Employee</p>
+
+    <form th:action="@{/consumers/save}"
+          th:object="${consumers}" method="POST" >
+
+        <!-- Add hidden form field to handle update -->
+     <input type="hidden" th:field="*{id}" />
+
+        <label>Consumer name</label>  <input type="text" th:field="*{consumerName}"
+               class="form-control mb-4 col-4" placeholder="Consumer name" >
+
+        <p th:if="${#fields.hasErrors('consumerName')}" th:errors="*{consumerName}">Name Error</p>
+        <ul>
+            <li th:each="err : ${#fields.errors('consumerName')}" th:text="${err}" class="error" />
+        </ul>
+        <label>Father's Name</label>
+        <input type="text" th:field="*{fatherName}"
+               class="form-control mb-4 col-4" placeholder="Father's name" >
+        <label>Email</label>
+        <input type="email" th:field="*{email}"
+               class="form-control mb-4 col-4" placeholder="email" >
+        <label>Address</label>
+
+        <input type="text" th:field="*{address}"
+               class="form-control mb-4 col-4" id="address">
+        <label>Old Meter Reading Date</label>
+
+        <input type="date" th:field="*{oldMeterReadingDate}"
+               class="form-control mb-4 col-4" id="oldMeterReadingDate">
+        <label>New Meter Reading Date</label>
+
+        <input type="date" th:field="*{newMeterReadingDate}"
+               class="form-control mb-4 col-4" id="newMeterReadingDate">
+        <label>Old Reading</label>
+
+        <input type="number" th:field="*{oldReading}"
+               class="form-control mb-4 col-4" id="oldReading">
+        <label>New Reading</label>
+
+        <input type="number" th:field="*{newReading}"
+               class="form-control mb-4 col-4" id="newReading" onchange=calculate()>
+        <label>Unit Consumed</label>
+
+        <input type="number" th:field="*{unitConsumed}"
+               class="form-control mb-4 col-4" id="unitConsumed">
+        <label>Charge Per Unit</label>
+
+        <input type="number" th:field="*{chargePerUnit}"
+               class="form-control mb-4 col-4" id="chargePerUnit">
+        <label>Due Bill</label>
+
+        <input type="number" th:field="*{dueBill}"
+               class="form-control mb-4 col-4" id="dueBill" >
+        <label>Total Bill</label>
+
+        <input type="number" th:field="*{totalBill}"
+               class="form-control mb-4 col-4" id="totalBill">
+        <label>Bill Number</label>
+
+        <input type="number" th:field="*{billNo}"
+               class="form-control mb-4 col-4" id="billNo">
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+        <button type="reset" class="btn btn-info col-2">Reset</button>
+
+    </form>
+
+    <hr>
+   <script>
+   const val=document.getElementById('newReading').value;
+   const date =document.getElementById('newMeterReadingDate').value;
+
+function calculate(){
+  document.getElementById('oldReading').value=val;
+<!--  console.log(eval(document.getElementById('newReading').value));-->
+<!--  console.log("cal function")-->
+   console.log(date);
+
+   document.getElementById('unitConsumed').value=(document.getElementById('newReading').value)-(document.getElementById('oldReading').value);
+     document.getElementById('totalBill').value= ((document.getElementById('chargePerUnit').value)*( document.getElementById('unitConsumed').value));
+document.getElementById('oldMeterReadingDate').value=document.getElementById('newMeterReadingDate').value;
+
+<!--const newdate= new Date();-->
+<!--document.getElementById('newMeterReadingDate').value=newdate.getFullYear()+'-'+newdate.getMonth()+'-'+newdate.getDay();-->
+<!--  console.log(newdate);-->
+<!--  console.log(document.getElementById('newMeterReadingDate').value);-->
+<!--  console.log(newdate.getFullYear()+'-'+newdate.getMonth()+'-'+newdate.getDay());-->
+<!-- }-->
+}
+
+</script>
+</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
