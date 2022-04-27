@@ -27,7 +27,8 @@
 			**/com/example/springboot/springassignment/aop/**,
 			**/com/example/springboot/springassignment/config/**,
 			**/com/example/springboot/springassignment/SpringAssignmentApplication.java,
-			**/com/example/springboot/springassignment/entity/**,
+			**/com/example/springboot/springassignment/entity/**
+			**/com/example/springboot/springassignment/controller/**,
 		</sonar.exclusions>
 
 	</properties>

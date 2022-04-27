@@ -48,7 +48,7 @@ public class ConsumerController {
         return "/consumers/consumer-form";
     }
     @PostMapping("/save")
-    public String saveEmployee(@Valid @ModelAttribute("consumers") Consumers consumers, BindingResult bindingResult) {
+    public String saveConsumer(@Valid @ModelAttribute("consumers") Consumers consumers, BindingResult bindingResult) {
 
           if(bindingResult.hasErrors()){
 
