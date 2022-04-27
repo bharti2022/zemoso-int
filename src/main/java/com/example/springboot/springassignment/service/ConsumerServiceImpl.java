@@ -2,7 +2,6 @@ package com.example.springboot.springassignment.service;
 
 import com.example.springboot.springassignment.dao.ConsumerRepository;
 import com.example.springboot.springassignment.entity.Consumers;
-import jdk.jpackage.internal.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

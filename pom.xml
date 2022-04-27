@@ -24,10 +24,10 @@
 		<sonar.sources>src/main/java</sonar.sources>
 		<sonar.language>java</sonar.language>
 		<sonar.exclusions>
-			**/com/example/springboot/SpringAssignment/aop/**,
-			**/com/example/springboot/SpringAssignment/config/**,
-			**/com/example/springboot/SpringAssignment/SpringAssignmentApplication.java,
-			**/com/example/springboot/SpringAssignment/entity/**,
+			**/com/example/springboot/springassignment/aop/**,
+			**/com/example/springboot/springassignment/config/**,
+			**/com/example/springboot/springassignment/SpringAssignmentApplication.java,
+			**/com/example/springboot/springassignment/entity/**,
 		</sonar.exclusions>
 
 	</properties>

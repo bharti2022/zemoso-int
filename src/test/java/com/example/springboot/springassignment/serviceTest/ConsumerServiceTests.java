@@ -51,13 +51,5 @@ public class ConsumerServiceTests {
         consumerService.deleteById(consumers.getId());
         verify(consumerRepository,times(1)).deleteById(consumers.getId());
    }
-//
-//   @Test
-//    public void saveConsumerTest(){
-//       Consumers consumers = new Consumers(2, "pardeep kumar", "omkar", "pawan@gmail.com", "sec-3 faridabad house no21", "2022-03-26", "2022-04-26", 2900, 3000, 100, 2, 0, 200, 1);
-//       when(consumerRepository.getById(2)).thenReturn(consumers);
-//     //  assertEquals(consumers.getConsumerName(),consumerService.save(consumerRepository.findById(consumers.getId())).getConsumerName());
-////            assertEquals(consumers.getConsumerName(),consumerService.save(consumers));
-//   }
 
 }
