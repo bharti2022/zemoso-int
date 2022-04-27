@@ -28,7 +28,6 @@
 			**/config/**,
 			**/SpringAssignmentApplication.java,
 			**/entity/**
-			**/controller/**,
 		</sonar.exclusions>
 
 	</properties>
