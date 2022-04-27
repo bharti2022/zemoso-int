@@ -38,7 +38,7 @@ public class AllTests {
         assertEquals(1,consumerService.findAll().size());
 
         List<Consumers> result=consumerService.findAll();
-        assertThat(result.size()).isEqualTo(1);
+        assertThat(result).hasSize(1);
         assertThat(result.get(0).getConsumerName()).isEqualTo(consumer.getConsumerName());
 
 
