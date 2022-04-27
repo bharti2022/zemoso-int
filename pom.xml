@@ -24,11 +24,11 @@
 		<sonar.sources>src/main/java</sonar.sources>
 		<sonar.language>java</sonar.language>
 		<sonar.exclusions>
-			**/com/example/springboot/springassignment/aop/**,
-			**/com/example/springboot/springassignment/config/**,
-			**/com/example/springboot/springassignment/SpringAssignmentApplication.java,
-			**/com/example/springboot/springassignment/entity/**
-			**/com/example/springboot/springassignment/controller/**,
+			**/aop/**,
+			**/config/**,
+			**/SpringAssignmentApplication.java,
+			**/entity/**
+			**/controller/**,
 		</sonar.exclusions>
 
 	</properties>
