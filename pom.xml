@@ -29,7 +29,8 @@
 			**/SpringAssignmentApplication.java,
 			**/entity/**,
 			**/dao/**,
-			**/controller/ConsumerController.java
+			**/controller/ConsumerController.java,
+			**/service/**
 		</sonar.exclusions>
 
 	</properties>
