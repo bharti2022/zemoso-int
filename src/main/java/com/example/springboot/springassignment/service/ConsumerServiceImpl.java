@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 @Service
 public class ConsumerServiceImpl implements ConsumerService{
 
-    private Logger logger= Logger.getLogger(ConsumerServiceImpl.class.getName());
     private ConsumerRepository consumerRepository;
     @Autowired
    public ConsumerServiceImpl(ConsumerRepository consumerRepository){
@@ -54,11 +53,9 @@ public class ConsumerServiceImpl implements ConsumerService{
        List<Consumers> results= null;
        if(theName!=null && (theName.trim().length()>0)){
            results = consumerRepository.findByConsumerNameLike("%"+theName+"%");
-           logger.info(results.toString());
        }
        else{
            results = findAll();
-           logger.info(results.toString());
        }
         return results;
     }

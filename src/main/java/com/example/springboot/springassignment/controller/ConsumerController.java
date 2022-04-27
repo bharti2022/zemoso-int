@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.logging.Logger;
+
 
 @Controller
 @RequestMapping("/consumers")
 public class ConsumerController {
     @Autowired
     private ConsumerService consumerService;
-    private Logger logger= Logger.getLogger(ConsumerController.class.getName());
     public ConsumerController(){
 
     }
@@ -25,6 +24,7 @@ public class ConsumerController {
     private static final String REDIRECT="redirect:";
     private static final String LIST="/consumers/list";
 
+    Consumers theConsumers=null;
     public ConsumerController(ConsumerService consumerService){
         this.consumerService=consumerService;
     }
@@ -38,7 +38,7 @@ public class ConsumerController {
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model theModel) {
-        Consumers theConsumers = new Consumers();
+         theConsumers = new Consumers();
 
             theModel.addAttribute("consumers", theConsumers);
 
@@ -49,12 +49,10 @@ public class ConsumerController {
 
           if(bindingResult.hasErrors()){
 
-              logger.info(bindingResult.toString());
               return "redirect:/consumers/showFormForUpdate?consumerId="+consumers.getId();
           }
         else {
 
-              logger.info(bindingResult.toString());
               consumerService.save(consumers);
               return REDIRECT+LIST;
           }
@@ -66,15 +64,16 @@ public class ConsumerController {
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("consumerId") int theId,
                                     Model theModel) {
-        Consumers consumers = consumerService.findById(theId);
-        theModel.addAttribute("consumers", consumers);
+         theConsumers= consumerService.findById(theId);
+        theModel.addAttribute("consumers", theConsumers);
 
         return "/consumers/consumer-update";
     }
 
     @GetMapping("/delete")
     public String delete(@RequestParam("consumerId") int theId){
-        Consumers consumers = consumerService.findById(theId);
+         theConsumers = consumerService.findById(theId);
+         consumerService.deleteById(theConsumers.getId());
         return REDIRECT+LIST;
     }
     @GetMapping("/search")
@@ -84,17 +83,10 @@ public class ConsumerController {
 
         List<Consumers> consumers = consumerService.searchByName(theName);
 
-        if(consumers==null){
-
-            return PATH_FOR_LIST;
-        }
-        else {
-
             theModel.addAttribute("consumers", consumers);
 
 
             return PATH_FOR_LIST;
-        }
 
 
     }
