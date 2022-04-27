@@ -1,6 +1,6 @@
-package com.example.springboot.SpringAssignment.dao;
+package com.example.springboot.springassignment.dao;
 
-import com.example.springboot.SpringAssignment.entity.Consumers;
+import com.example.springboot.springassignment.entity.Consumers;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;

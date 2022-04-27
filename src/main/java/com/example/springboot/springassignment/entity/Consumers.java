@@ -1,4 +1,4 @@
-package com.example.springboot.SpringAssignment.entity;
+package com.example.springboot.springassignment.entity;
 
 import lombok.*;
 import javax.persistence.*;

@@ -1,4 +1,4 @@
-package com.example.springboot.SpringAssignment.config;
+package com.example.springboot.springassignment.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

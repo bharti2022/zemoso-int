@@ -1,4 +1,4 @@
-package com.example.springboot.SpringAssignment.config;
+package com.example.springboot.springassignment.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;

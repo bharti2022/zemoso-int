@@ -1,8 +1,8 @@
-package com.example.springboot.SpringAssignment.serviceTest;
+package com.example.springboot.springassignment.serviceTest;
 
-import com.example.springboot.SpringAssignment.dao.ConsumerRepository;
-import com.example.springboot.SpringAssignment.entity.Consumers;
-import com.example.springboot.SpringAssignment.service.ConsumerService;
+import com.example.springboot.springassignment.dao.ConsumerRepository;
+import com.example.springboot.springassignment.entity.Consumers;
+import com.example.springboot.springassignment.service.ConsumerService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

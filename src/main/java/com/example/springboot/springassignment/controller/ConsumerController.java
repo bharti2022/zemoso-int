@@ -1,7 +1,7 @@
-package com.example.springboot.SpringAssignment.controller;
+package com.example.springboot.springassignment.controller;
 
-import com.example.springboot.SpringAssignment.entity.Consumers;
-import com.example.springboot.SpringAssignment.service.ConsumerService;
+import com.example.springboot.springassignment.entity.Consumers;
+import com.example.springboot.springassignment.service.ConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/consumers")
 public class ConsumerController {
     @Autowired
     private ConsumerService consumerService;
-
+    private Logger logger= Logger.getLogger(ConsumerController.class.getName());
     public ConsumerController(){
 
     }
+    String pathOfList="/consumers/list-consumers";
     public ConsumerController(ConsumerService consumerService){
         this.consumerService=consumerService;
     }
@@ -28,7 +30,7 @@ public class ConsumerController {
     public String listConsumers(Model theModel){
         List<Consumers> theConsumers = consumerService.findAll();
         theModel.addAttribute("consumers",theConsumers);
-        return "/consumers/list-consumers";
+        return pathOfList;
     }
 
     @GetMapping("/showFormForAdd")
@@ -44,12 +46,12 @@ public class ConsumerController {
 
           if(bindingResult.hasErrors()){
 
-              System.out.println(bindingResult.toString());
+              logger.info(bindingResult.toString());
               return "redirect:/consumers/showFormForUpdate?consumerId="+consumers.getId();
           }
         else {
-              // save the employee
-              System.out.println(bindingResult);
+
+              logger.info(bindingResult.toString());
               consumerService.save(consumers);
               return "redirect:/consumers/list";
           }
@@ -81,14 +83,14 @@ public class ConsumerController {
 
         if(consumers==null){
 
-            return "/consumers/list-consumers";
+            return pathOfList;
         }
         else {
 
             theModel.addAttribute("consumers", consumers);
 
 
-            return "/consumers/list-consumers";
+            return pathOfList;
         }
 
 

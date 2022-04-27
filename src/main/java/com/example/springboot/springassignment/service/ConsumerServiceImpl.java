@@ -1,16 +1,19 @@
-package com.example.springboot.SpringAssignment.service;
+package com.example.springboot.springassignment.service;
 
-import com.example.springboot.SpringAssignment.dao.ConsumerRepository;
-import com.example.springboot.SpringAssignment.entity.Consumers;
+import com.example.springboot.springassignment.dao.ConsumerRepository;
+import com.example.springboot.springassignment.entity.Consumers;
+import jdk.jpackage.internal.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
 public class ConsumerServiceImpl implements ConsumerService{
 
+    private Logger logger= Logger.getLogger(ConsumerServiceImpl.class.getName());
     private ConsumerRepository consumerRepository;
     @Autowired
    public ConsumerServiceImpl(ConsumerRepository consumerRepository){
@@ -52,11 +55,11 @@ public class ConsumerServiceImpl implements ConsumerService{
        List<Consumers> results= null;
        if(theName!=null && (theName.trim().length()>0)){
            results = consumerRepository.findByConsumerNameLike("%"+theName+"%");
-           System.out.println(results);
+           logger.info(results.toString());
        }
        else{
            results = findAll();
-           System.out.println(results);
+           logger.info(results.toString());
        }
         return results;
     }

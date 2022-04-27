@@ -1,6 +1,6 @@
-package com.example.springboot.SpringAssignment.service;
+package com.example.springboot.springassignment.service;
 
-import com.example.springboot.SpringAssignment.entity.Consumers;
+import com.example.springboot.springassignment.entity.Consumers;
 
 import java.util.List;
 
