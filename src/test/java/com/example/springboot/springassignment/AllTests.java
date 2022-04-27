@@ -28,11 +28,12 @@ public class AllTests {
 
     @MockBean
     private ConsumerRepository consumerRepository;
-    Consumers consumer = new Consumers(1, "pardeep kumar", "omkar", "pawan@gmail.com", "sec-3 faridabad house no21", "2022-03-26", "2022-04-26", 2900, 3000, 100, 2, 0, 200, 1);
 
 
     @Test
     public void getConsumersTest(){
+        Consumers consumer = new Consumers(1, "pardeep kumar", "omkar", "pawan@gmail.com", "sec-3 faridabad house no21", "2022-03-26", "2022-04-26", 2900, 3000, 100, 2, 0, 200, 1);
+
         List<Consumers> consumersList=new ArrayList<>(Arrays.asList(consumer));
         when(consumerRepository.findAll()).thenReturn(consumersList);
         assertEquals(1,consumerService.findAll().size());
@@ -47,17 +48,23 @@ public class AllTests {
 
     @Test
     public void getConsumerById(){
+        Consumers consumer = new Consumers(1, "pardeep kumar", "omkar", "pawan@gmail.com", "sec-3 faridabad house no21", "2022-03-26", "2022-04-26", 2900, 3000, 100, 2, 0, 200, 1);
+
         when(consumerRepository.findById(1)).thenReturn(Optional.of(consumer));
         assertEquals(consumer,consumerService.findById(consumer.getId()));
     }
    @Test
    public void deleteConsumerTest(){
+       Consumers consumer = new Consumers(1, "pardeep kumar", "omkar", "pawan@gmail.com", "sec-3 faridabad house no21", "2022-03-26", "2022-04-26", 2900, 3000, 100, 2, 0, 200, 1);
+
         consumerRepository.delete(consumer);
         consumerService.deleteById(consumer.getId());
         verify(consumerRepository,times(1)).deleteById(consumer.getId());
    }
    @Test
     public void save(){
+       Consumers consumer = new Consumers(1, "pardeep kumar", "omkar", "pawan@gmail.com", "sec-3 faridabad house no21", "2022-03-26", "2022-04-26", 2900, 3000, 100, 2, 0, 200, 1);
+
         consumerService.save(consumer);
         verify(consumerRepository, Mockito.times(1)).save(consumer);
    }

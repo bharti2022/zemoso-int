@@ -13,6 +13,7 @@ public class LoginControllerTests {
     @Test
     public void loginPage(){
         assertEquals("user-login",loginController.showMyLoginPage());
+
     }
     @Test
     public void showAccessDeniedPage(){
