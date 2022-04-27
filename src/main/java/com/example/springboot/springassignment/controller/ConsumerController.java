@@ -21,7 +21,10 @@ public class ConsumerController {
     public ConsumerController(){
 
     }
-    String pathOfList="/consumers/list-consumers";
+    private static final String PATH_FOR_LIST="/consumers/list-consumers";
+    private static final String REDIRECT="redirect:";
+    private static final String LIST="/consumers/list";
+
     public ConsumerController(ConsumerService consumerService){
         this.consumerService=consumerService;
     }
@@ -30,7 +33,7 @@ public class ConsumerController {
     public String listConsumers(Model theModel){
         List<Consumers> theConsumers = consumerService.findAll();
         theModel.addAttribute("consumers",theConsumers);
-        return pathOfList;
+        return PATH_FOR_LIST;
     }
 
     @GetMapping("/showFormForAdd")
@@ -53,7 +56,7 @@ public class ConsumerController {
 
               logger.info(bindingResult.toString());
               consumerService.save(consumers);
-              return "redirect:/consumers/list";
+              return REDIRECT+LIST;
           }
 
           }
@@ -72,7 +75,7 @@ public class ConsumerController {
     @GetMapping("/delete")
     public String delete(@RequestParam("consumerId") int theId){
         Consumers consumers = consumerService.findById(theId);
-        return "redirect:/consumers/list";
+        return REDIRECT+LIST;
     }
     @GetMapping("/search")
     public String search(@RequestParam("consumerName") String theName,
@@ -83,14 +86,14 @@ public class ConsumerController {
 
         if(consumers==null){
 
-            return pathOfList;
+            return PATH_FOR_LIST;
         }
         else {
 
             theModel.addAttribute("consumers", consumers);
 
 
-            return pathOfList;
+            return PATH_FOR_LIST;
         }
 
 
