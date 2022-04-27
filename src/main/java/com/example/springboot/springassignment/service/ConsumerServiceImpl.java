@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
+
 
 @Service
 public class ConsumerServiceImpl implements ConsumerService{
@@ -31,8 +31,6 @@ public class ConsumerServiceImpl implements ConsumerService{
 
         if(result.isPresent()){
             consumers=result.get();
-        }else {
-            throw new RuntimeException("didnot found consumer==============>"+theId);
         }
         return consumers;
     }

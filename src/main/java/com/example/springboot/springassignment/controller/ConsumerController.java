@@ -25,13 +25,14 @@ public class ConsumerController {
     private static final String LIST="/consumers/list";
 
     Consumers theConsumers=null;
+    List<Consumers> consumers;
     public ConsumerController(ConsumerService consumerService){
         this.consumerService=consumerService;
     }
 
     @GetMapping("/list")
     public String listConsumers(Model theModel){
-        List<Consumers> theConsumers = consumerService.findAll();
+        consumers = consumerService.findAll();
         theModel.addAttribute("consumers",theConsumers);
         return PATH_FOR_LIST;
     }
@@ -81,13 +82,11 @@ public class ConsumerController {
                          Model theModel) {
 
 
-        List<Consumers> consumers = consumerService.searchByName(theName);
+        consumers = consumerService.searchByName(theName);
 
             theModel.addAttribute("consumers", consumers);
 
-
             return PATH_FOR_LIST;
-
 
     }
 
