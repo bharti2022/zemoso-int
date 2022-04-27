@@ -1,4 +1,4 @@
-package com.example.springboot.springassignment;
+package com.example.springboot.springassignment.controller;
 
 import com.example.springboot.springassignment.dao.ConsumerRepository;
 import com.example.springboot.springassignment.entity.Consumers;
