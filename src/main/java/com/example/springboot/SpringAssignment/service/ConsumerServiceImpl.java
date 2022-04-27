@@ -46,16 +46,11 @@ public class ConsumerServiceImpl implements ConsumerService{
         consumerRepository.deleteById(theId);
     }
 
-//    @Override
-//    public List<Consumers> searchBy(String theName) {
-//        return null;
-//    }
 
     @Override
     public List<Consumers> searchByName(String theName) {
        List<Consumers> results= null;
        if(theName!=null && (theName.trim().length()>0)){
-          // results = consumerRepository.findByConsumerName(theName);
            results = consumerRepository.findByConsumerNameLike("%"+theName+"%");
            System.out.println(results);
        }
