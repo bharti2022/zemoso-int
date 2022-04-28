@@ -3,7 +3,7 @@ package com.example.springboot.springassignment.controller;
 import com.example.springboot.springassignment.dao.ConsumerRepository;
 import com.example.springboot.springassignment.entity.Consumers;
 import com.example.springboot.springassignment.service.ConsumerService;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
